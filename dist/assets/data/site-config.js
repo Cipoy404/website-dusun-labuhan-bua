@@ -7,7 +7,7 @@ window.SITE_CONFIG = {
   email: "",
   whatsapp: "6289531541524",
   whatsappDisplay: "0895 3154 1524",
-  support: { name: "Heldi Irwansah", role: "Support Website" },
+  supportLabel: "Hubungi Support",
   instagram: "",
   facebook: "",
   head: { name: "Nama Kepala Dusun belum diverifikasi", role: "Kepala Dusun", greeting: "Selamat datang di portal digital Dusun Labuhan Bua. Website ini disiapkan sebagai ruang informasi masyarakat, layanan publik, dan pengenalan potensi lokal. Data resmi akan diperbarui setelah proses verifikasi." },
