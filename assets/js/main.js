@@ -1,14 +1,68 @@
-(function(){
-  const c=window.SITE_CONFIG||{};
+(function () {
+  const c = window.SITE_CONFIG || {};
   window.renderNavigation?.();
-  const footer=document.querySelector('[data-footer]');if(footer)footer.innerHTML=`<div class="container"><div class="footer-grid"><div><a class="brand" href="index.html"><span class="brand-mark"><i data-lucide="waves"></i></span><span class="brand-text"><small>Portal Digital</small>${c.name}</span></a><p style="margin-top:20px;max-width:480px">Portal informasi masyarakat dan promosi potensi lokal. Konten resmi akan diperbarui setelah verifikasi perangkat dusun.</p></div><div><h3>Navigasi</h3><div class="footer-links"><a href="profil.html">Profil Dusun</a><a href="berita.html">Berita & Kegiatan</a><a href="layanan.html">Layanan Informasi</a><a href="kontak.html">Kontak</a></div></div><div><h3>Informasi & Support</h3><div class="footer-links"><span>${c.location}</span><span>${c.address}</span><a href="mailto:${c.email||''}">${c.email||'Email belum tersedia'}</a><a class="whatsapp-link" href="#"><i data-lucide="message-circle"></i> ${c.supportLabel||'Hubungi Support'}</a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${c.name}. Semua hak dilindungi.</span><span>${c.supportLabel||'Hubungi Support'} • Visual hero merupakan ilustrasi</span></div></div>`;
-  const notice=document.querySelector('[data-notice]');if(notice)notice.textContent=c.notice;
-  document.querySelectorAll('[data-config]').forEach(el=>{const path=el.dataset.config.split('.');let v=c;path.forEach(k=>v=v?.[k]);if(v)el.textContent=v});
-  const pre=document.querySelector('.preloader');addEventListener('load',()=>setTimeout(()=>{pre?.classList.add('hidden');document.body.classList.add('loaded')},350));setTimeout(()=>{pre?.classList.add('hidden');document.body.classList.add('loaded')},1800);
-  const back=document.querySelector('.back-top');addEventListener('scroll',()=>back?.classList.toggle('show',scrollY>500),{passive:true});back?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-  const contactItems=document.querySelectorAll('.contact-box .contact-item');if(contactItems[2])contactItems[2].innerHTML=`<i data-lucide="phone"></i><span><strong>${c.supportLabel||'Hubungi Support'}</strong><br><a class="whatsapp-link" href="#"><i data-lucide="message-circle"></i> Buka WhatsApp</a></span>`;
-  if(!document.querySelector('.whatsapp')){const floatWa=document.createElement('a');floatWa.className='float-btn whatsapp';floatWa.href='#';floatWa.setAttribute('aria-label','Hubungi Support melalui WhatsApp');floatWa.innerHTML='<i data-lucide="message-circle"></i>';document.body.appendChild(floatWa)}
-  document.querySelectorAll('.whatsapp,.whatsapp-link').forEach(wa=>{if(c.whatsapp){wa.href=`https://wa.me/${c.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent('Halo Support, saya menghubungi dari website Dusun Labuhan Bua.')}`;wa.target='_blank';wa.rel='noopener'}else{wa.addEventListener('click',e=>{e.preventDefault();alert('Nomor WhatsApp support belum dikonfigurasi.')})}});
+  const footer = document.querySelector('[data-footer]');
+  if (footer)
+    footer.innerHTML = `<div class="container"><div class="footer-grid"><div><a class="brand" href="index.html"><span class="brand-mark"><i data-lucide="waves"></i></span><span class="brand-text"><small>Portal Digital</small>${c.name}</span></a><p style="margin-top:20px;max-width:480px">Portal informasi masyarakat dan promosi potensi lokal. Konten resmi akan diperbarui setelah verifikasi perangkat dusun.</p></div><div><h3>Navigasi</h3><div class="footer-links"><a href="profil.html">Profil Dusun</a><a href="berita.html">Berita & Kegiatan</a><a href="layanan.html">Layanan Informasi</a><a href="kontak.html">Kontak</a></div></div><div><h3>Informasi & Support</h3><div class="footer-links"><span>${c.location}</span><span>${c.address}</span><a href="mailto:${c.email || ''}">${c.email || 'Email belum tersedia'}</a><a class="whatsapp-link" href="#"><i data-lucide="message-circle"></i> ${c.supportLabel || 'Hubungi Support'}</a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${c.name}. Semua hak dilindungi.</span><span>${c.supportLabel || 'Hubungi Support'} • Visual hero merupakan ilustrasi</span></div></div>`;
+  const notice = document.querySelector('[data-notice]');
+  if (notice) notice.textContent = c.notice;
+  document.querySelectorAll('[data-config]').forEach((el) => {
+    const path = el.dataset.config.split('.');
+    let v = c;
+    path.forEach((k) => (v = v?.[k]));
+    if (v) el.textContent = v;
+  });
+  const pre = document.querySelector('.preloader');
+  addEventListener('load', () =>
+    setTimeout(() => {
+      pre?.classList.add('hidden');
+      document.body.classList.add('loaded');
+    }, 350)
+  );
+  setTimeout(() => {
+    pre?.classList.add('hidden');
+    document.body.classList.add('loaded');
+  }, 1800);
+  const back = document.querySelector('.back-top');
+  addEventListener('scroll', () => back?.classList.toggle('show', scrollY > 500), {
+    passive: true,
+  });
+  back?.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  const contactItems = document.querySelectorAll('.contact-box .contact-item');
+  if (contactItems[2])
+    contactItems[2].innerHTML = `<i data-lucide="phone"></i><span><strong>${c.supportLabel || 'Hubungi Support'}</strong><br><a class="whatsapp-link" href="#"><i data-lucide="message-circle"></i> Buka WhatsApp</a></span>`;
+  if (!document.querySelector('.whatsapp')) {
+    const floatWa = document.createElement('a');
+    floatWa.className = 'float-btn whatsapp';
+    floatWa.href = '#';
+    floatWa.setAttribute('aria-label', 'Hubungi Support melalui WhatsApp');
+    floatWa.innerHTML = '<i data-lucide="message-circle"></i>';
+    document.body.appendChild(floatWa);
+  }
+  document.querySelectorAll('.whatsapp,.whatsapp-link').forEach((wa) => {
+    if (c.whatsapp) {
+      wa.href = `https://wa.me/${c.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Halo Support, saya menghubungi dari website Dusun Labuhan Bua.')}`;
+      wa.target = '_blank';
+      wa.rel = 'noopener';
+    } else {
+      wa.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Nomor WhatsApp support belum dikonfigurasi.');
+      });
+    }
+  });
   window.lucide?.createIcons();
-  if(window.Swiper&&document.querySelector('.potential-slider'))new Swiper('.potential-slider',{slidesPerView:1.1,spaceBetween:18,grabCursor:true,keyboard:{enabled:true},breakpoints:{680:{slidesPerView:2.1},1024:{slidesPerView:3.3},1280:{slidesPerView:4.2}},pagination:{el:'.swiper-pagination',clickable:true}});
+  if (window.Swiper && document.querySelector('.potential-slider'))
+    new Swiper('.potential-slider', {
+      slidesPerView: 1.1,
+      spaceBetween: 18,
+      grabCursor: true,
+      keyboard: { enabled: true },
+      breakpoints: {
+        680: { slidesPerView: 2.1 },
+        1024: { slidesPerView: 3.3 },
+        1280: { slidesPerView: 4.2 },
+      },
+      pagination: { el: '.swiper-pagination', clickable: true },
+    });
 })();

@@ -1,1 +1,36 @@
-(function(){const root=document.querySelector('[data-gallery-grid]');if(!root)return;const data=window.GALLERY_DATA||[];root.innerHTML=data.map((x,i)=>`<button class="gallery-item reveal" data-gallery-index="${i}" aria-label="Perbesar ${x.title}"><img src="${x.src}" alt="${x.title} — ${x.note}" loading="lazy"><span class="gallery-caption"><strong>${x.title}</strong><span>${x.note}</span></span></button>`).join('');const box=document.querySelector('.lightbox'),img=box?.querySelector('img'),note=box?.querySelector('.lightbox-note');function close(){box?.classList.remove('open');document.body.classList.remove('menu-open')}root.addEventListener('click',e=>{const b=e.target.closest('[data-gallery-index]');if(!b)return;const x=data[Number(b.dataset.galleryIndex)];img.src=x.src;img.alt=x.title;note.textContent=`${x.title} • ${x.note}`;box.classList.add('open');document.body.classList.add('menu-open');box.querySelector('button').focus()});box?.querySelector('button').addEventListener('click',close);box?.addEventListener('click',e=>{if(e.target===box)close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+(function () {
+  const root = document.querySelector('[data-gallery-grid]');
+  if (!root) return;
+  const data = window.GALLERY_DATA || [];
+  root.innerHTML = data
+    .map(
+      (x, i) =>
+        `<button class="gallery-item reveal" data-gallery-index="${i}" aria-label="Perbesar ${x.title}"><img src="${x.src}" alt="${x.title} — ${x.note}" loading="lazy"><span class="gallery-caption"><strong>${x.title}</strong><span>${x.note}</span></span></button>`
+    )
+    .join('');
+  const box = document.querySelector('.lightbox'),
+    img = box?.querySelector('img'),
+    note = box?.querySelector('.lightbox-note');
+  function close() {
+    box?.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+  root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-gallery-index]');
+    if (!b) return;
+    const x = data[Number(b.dataset.galleryIndex)];
+    img.src = x.src;
+    img.alt = x.title;
+    note.textContent = `${x.title} • ${x.note}`;
+    box.classList.add('open');
+    document.body.classList.add('menu-open');
+    box.querySelector('button').focus();
+  });
+  box?.querySelector('button').addEventListener('click', close);
+  box?.addEventListener('click', (e) => {
+    if (e.target === box) close();
+  });
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
