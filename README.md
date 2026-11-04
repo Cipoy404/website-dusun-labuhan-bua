@@ -12,4 +12,4 @@ Gunakan ekstensi Live Server di Visual Studio Code, atau jalankan `python -m htt
 - Berita: `assets/data/berita.js`
 - Galeri: `assets/data/galeri.js`
 
-Data yang belum diverifikasi sengaja ditampilkan sebagai kosong atau contoh. Visual hero adalah ilustrasi AI dan harus diganti dokumentasi resmi ketika tersedia.
+Data yang belum diverifikasi sengaja ditampilkan sebagai kosong atau contoh. Visual hero adalah ilustrasi dan dapat diganti dengan dokumentasi resmi ketika tersedia.

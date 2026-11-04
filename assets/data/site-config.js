@@ -19,5 +19,5 @@ window.SITE_CONFIG = {
   ],
   coordinates: null,
   mapLabel: "Koordinat resmi belum tersedia",
-  notice: "Konten dan angka pada website ini menunggu verifikasi perangkat Dusun Labuhan Bua. Visual pesisir merupakan ilustrasi AI, bukan dokumentasi resmi."
+  notice: "Konten dan angka pada website ini menunggu verifikasi perangkat Dusun Labuhan Bua. Visual pesisir merupakan ilustrasi, bukan dokumentasi resmi."
 };
